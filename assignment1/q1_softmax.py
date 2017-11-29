@@ -33,20 +33,15 @@ def softmax(x):
     x -- You are allowed to modify x in-place
     """
     orig_shape = x.shape
+    # so if you get an array of data, use this.
     if len(x.shape) > 1:
-        # Matrix
-        ### YOUR CODE HERE
         values = []
         for i in range(len(x)):
             values.append(softmax(x[i]))
         x = np.array(values)
-        ### END YOUR CODE
-    else:
-        # Vector
-        ### YOUR CODE HERE
+    else: # if you just got one value, use this.
         e = np.exp(x - max(x))
         x = e / e.sum()
-        ### END YOUR CODE
 
     assert x.shape == orig_shape
     return x
@@ -77,20 +72,5 @@ def test_softmax_basic():
 
     print("You should be able to verify these results by hand!\n")
 
-
-# def test_softmax():
-#     """
-#     Use this space to test your softmax implementation by running:
-#         python q1_softmax.py
-#     This function will not be called by the autograder, nor will
-#     your tests be graded.
-#     """
-#     print("Running your tests...")
-#     ### YOUR CODE HERE
-#     raise NotImplementedError
-#     ### END YOUR CODE
-
-
 if __name__ == "__main__":
     test_softmax_basic()
-    # test_softmax()

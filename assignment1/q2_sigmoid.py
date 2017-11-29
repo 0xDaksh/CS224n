@@ -2,6 +2,12 @@
 
 import numpy as np
 
+"""
+
+Sigmoid Assignment for Stanford cs224n
+Code by Daksh Miglani <hello@dak.sh> https://dak.sh
+
+"""
 
 def sigmoid(x):
     """
